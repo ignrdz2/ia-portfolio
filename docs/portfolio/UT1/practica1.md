@@ -201,4 +201,4 @@ Las columnas con más valores faltantes son `Cabin`, `Age` y `Embarked`.
 ## Referencias
 
 - [Descripción del dataset y competencia en Kaggle](https://www.kaggle.com/competitions/titanic/data)
-- Ejemplos de notebooks públicos en
+- Ejemplos de notebooks públicos en Kaggle
