@@ -5,8 +5,7 @@ date: 2025-01-01
 
 # Portafolio — Inicio
 
-Bienvenido al portafolio del curso. Aquí documentarás tu progreso,
-evidencias y reflexiones a lo largo del semestre.
+Portafolio de Juan Rodriguez, correspondiente a la materia "Inteligencia Artificial I".
 
 - Revisa la sección "Acerca de mí" para presentarte.
 - Crea entradas en `Portfolio` usando la plantilla provista.

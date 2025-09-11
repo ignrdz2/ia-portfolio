@@ -5,10 +5,12 @@ date: 2025-01-01
 
 # Acerca de mí
 
-Breve presentación personal, intereses y objetivos para este curso.
+Estudiante de Ingeniería en Informática con interés en la inteligencia artificial.
 
 ## Habilidades
-- Lenguajes / herramientas relevantes
+
+- Muchas.
 
 ## Contacto
-- Email institucional
+
+- ji.rodriguez@correo.ucu.edu.uy
