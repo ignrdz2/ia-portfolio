@@ -5,6 +5,8 @@ date: 2025-01-01
 
 # Práctica 1 — EDA del Titanic en Google Colab
 
+- Link al proyecto en Colab: [Practica1.ipynb](https://colab.research.google.com/drive/1QKzwbxGR3xPZEOOXgEBbacLxBBXo876Z?usp=sharing)
+
 ## Contexto
 
 Análisis exploratorio del dataset del Titanic usando Google Colab y librerías de Python. El objetivo es comprender la estructura de los datos y explorar factores que influyen en la supervivencia.
@@ -47,9 +49,9 @@ El dataset del Titanic es uno de los conjuntos de datos más famosos en ciencia 
 
 **Preguntas de investigación:**
 
-- ¿Qué factores influyeron más en la supervivencia?
-- ¿Qué desafíos de calidad de datos existen?
-- ¿Qué variables podrían estar correlacionadas?
+- ¿Qué factores influyeron más en la supervivencia?: Clase del billete, sexo, edad y puerto de embarque.
+- ¿Qué desafíos de calidad de datos existen?: Valores faltantes (edad, camarote, embarque), datos inconsistentes o mal tipados.
+- ¿Qué variables podrían estar correlacionadas?: Clase con tarifa, clase con camarote, miembros familiares con supervivencia.
 
 ### 1. Setup en Colab
 

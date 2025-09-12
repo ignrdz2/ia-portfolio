@@ -5,6 +5,8 @@ date: 2025-01-01
 
 # Práctica 2 — Feature Engineering simple + Modelo base
 
+- Link al proyecto en Colab: [Practica2.ipynb](https://colab.research.google.com/drive/100QJZ96NoMD5aleEhmx0Xz_mYb4WJ9RM?usp=sharing)
+
 ## Contexto
 
 En esta práctica se explora el preprocesamiento de datos y la creación de nuevas variables (feature engineering) para el dataset del Titanic. Se implementa un modelo base de Regresión Logística y se compara con un baseline usando DummyClassifier.

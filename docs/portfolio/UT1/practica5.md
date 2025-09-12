@@ -5,6 +5,8 @@ date: 2025-08-21
 
 # Práctica 5 — Validación y Selección de Modelos
 
+- Link al proyecto en Colab: [Practica5.ipynb](https://colab.research.google.com/drive/1vzpNBrKbYTssHvKVhIhcSux6U6jG9XlG?usp=sharing)
+
 ## Contexto
 
 Práctica guiada sobre validación cruzada, comparación de modelos y explicabilidad usando el dataset "Student Dropout and Academic Success" de UCI. El objetivo es prevenir data leakage, comparar modelos robustamente y entender las decisiones del modelo.
@@ -28,7 +30,7 @@ Práctica guiada sobre validación cruzada, comparación de modelos y explicabil
 
 ## Desarrollo
 
-### Paso 1: Setup y exploración de datos
+### Paso 1: Setup inicial
 
 ```python
 !pip install ucimlrepo
@@ -49,6 +51,11 @@ from ucimlrepo import fetch_ucirepo
 from sklearn.metrics import accuracy_score, classification_report
 
 print("Setup completo!")
+```
+
+### Paso 2: Cargar y Explorar datos de Estudiantes
+
+```python
 
 # Cargar dataset de estudiantes desde UCI
 student_data = fetch_ucirepo(id=697)
@@ -108,7 +115,7 @@ Age at enrollment:
   Rango: 17-70 años
 ```
 
-### Paso 2: Preparar datos para validación
+### Paso 3: Preparar datos para validación
 
 ```python
 # Preparar variable objetivo como serie simple
@@ -141,11 +148,9 @@ Clases únicas: [np.int64(0), np.int64(1), np.int64(2)]
 Mapeo: {0: 'Dropout', 1: 'Enrolled', 2: 'Graduate'}
 ```
 
-### Paso 3: Validación cruzada robusta
+### Paso 4: Implementar validación cruzada robusta
 
 ```python
-# === VALIDACIÓN CRUZADA PARA ESTABILIDAD ===
-
 print("🔬 VALIDACIÓN CRUZADA: ¿Qué tan estable es nuestro modelo?")
 
 # 1. Crear pipeline robusto para usar en CV
@@ -232,11 +237,9 @@ COMPARACIÓN DE ESTABILIDAD:
 
 ![Distribución de Scores - Validación Cruzada](assets/practica5_cv.png)
 
-### Paso 4: Competencia de modelos
+### Paso 5: Competencia de Múltiples Modelos
 
 ```python
-# === COMPETENCIA DE MODELOS ===
-
 print("🏆 TORNEO: ¿Cuál modelo funciona mejor para diagnóstico médico?")
 
 # 1. Definir candidatos (diferentes algoritmos)
@@ -366,7 +369,7 @@ ANÁLISIS DE ESTABILIDAD:
 
 ![Distribución de Accuracy por Modelo](assets/practica5_models.png)
 
-### Paso 5: Optimización de hiperparámetros
+### Paso 6: GridSearchCV vs RandomizedSearchCV
 
 ```python
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
@@ -460,7 +463,7 @@ RandomSearch probó: 20 combinaciones
 Modelo final optimizado: 0.7783 ± 0.0067
 ```
 
-### Paso 6: Explicabilidad del modelo
+### Paso 7: ¿Por qué el modelo toma esas decisiones?
 
 ```python
 # Usar Random Forest para explicabilidad (si no ganó, crearlo)

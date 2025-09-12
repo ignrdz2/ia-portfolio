@@ -5,6 +5,8 @@ date: 2025-08-20
 
 # Práctica 4 — Regresión Lineal y Logística
 
+- Link al proyecto en Colab: [Practica4.ipynb](https://colab.research.google.com/drive/10IF0oapC1l--meZXG6RQV6jPAWhgcF-w?usp=sharing)
+
 ## Contexto
 
 Práctica guiada sobre Machine Learning clásico: regresión lineal para predicción de precios de casas y regresión logística para diagnóstico médico. Se exploran conceptos, métricas y diferencias entre ambos enfoques.
@@ -30,10 +32,12 @@ Práctica guiada sobre Machine Learning clásico: regresión lineal para predicc
 ### Parte 1: Regresión Lineal — Predicción de Precios de Casas
 
 ```python
+# Importar librerías que vamos a usar
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Para los modelos de machine learning
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, accuracy_score, classification_report, confusion_matrix, precision_score, recall_score, f1_score
@@ -45,6 +49,7 @@ print("✅ Setup completo!")
 #### Cargar y explorar el dataset
 
 ```python
+# 1. Cargar el dataset desde una URL
 url = "https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv"
 boston_data = pd.read_csv(url)
 
@@ -52,11 +57,14 @@ print("🏠 DATASET: Boston Housing")
 print(f"   📊 Forma: {boston_data.shape}")
 print(f"   📋 Columnas: {list(boston_data.columns)}")
 
+# 2. Explorar los datos básicamente
 print("\n🔍 Primeras 5 filas:")
 print(boston_data.head())
 
-X = boston_data.drop('medv', axis=1)
-y = boston_data['medv']
+# 3. Preparar X (variables independientes) e y (variable dependiente)
+# La columna 'medv' es el precio de la casa que queremos predecir
+X = boston_data.drop('medv', axis=1)  # Todas las columnas EXCEPTO la que queremos predecir
+y = boston_data['medv']                # Solo la columna que queremos predecir
 
 print(f"\n📊 X tiene forma: {X.shape}")
 print(f"📊 y tiene forma: {y.shape}")
@@ -95,23 +103,30 @@ print(f"📈 Precio mínimo: ${y.min():.1f}k, Precio máximo: ${y.max():.1f}k")
 #### Entrenar modelo de regresión lineal
 
 ```python
+# 1. Dividir datos en entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 print(f"📊 Datos de entrenamiento: {X_train.shape[0]} casas")
 print(f"📊 Datos de prueba: {X_test.shape[0]} casas")
 
+# 2. Crear y entrenar el modelo
 modelo_regresion = LinearRegression()
 modelo_regresion.fit(X_train, y_train)
 
 print("✅ Modelo entrenado!")
 
+# 3. Hacer predicciones
 predicciones = modelo_regresion.predict(X_test)
+
 print(f"\n🔮 Predicciones hechas para {len(predicciones)} casas")
 
+# 4. Evaluar qué tan bueno es el modelo con MÚLTIPLES MÉTRICAS
 mae = mean_absolute_error(y_test, predicciones)
 mse = mean_squared_error(y_test, predicciones)
 rmse = np.sqrt(mse)
 r2 = r2_score(y_test, predicciones)
+
+# Calcular MAPE manualmente
 mape = np.mean(np.abs((y_test - predicciones) / y_test)) * 100
 
 print(f"\n📈 MÉTRICAS DE EVALUACIÓN:")
@@ -126,6 +141,7 @@ print(f"   💰 En promedio nos equivocamos por ${mae:.2f}k (MAE)")
 print(f"   📈 El modelo explica {r2*100:.1f}% de la variabilidad (R²)")
 print(f"   📊 Error porcentual promedio: {mape:.1f}% (MAPE)")
 
+# 5. Comparar algunas predicciones reales vs predichas
 print(f"\n🔍 EJEMPLOS (Real vs Predicho):")
 for i in range(5):
     real = y_test.iloc[i]
@@ -175,7 +191,10 @@ for i in range(5):
 ### Parte 2: Regresión Logística — Diagnóstico Médico
 
 ```python
+# 1. Cargar el dataset de cáncer de mama (que viene con sklearn)
 cancer_data = load_breast_cancer()
+
+# 2. Convertir a DataFrame para verlo mejor
 X_cancer = pd.DataFrame(cancer_data.data, columns=cancer_data.feature_names)
 y_cancer = cancer_data.target  # 0 = maligno, 1 = benigno
 
@@ -184,6 +203,7 @@ print(f"   📊 Pacientes: {X_cancer.shape[0]}")
 print(f"   📊 Características: {X_cancer.shape[1]}")
 print(f"   🎯 Objetivo: Predecir si tumor es benigno (1) o maligno (0)")
 
+# 3. Ver balance de clases
 casos_malignos = (y_cancer == 0).sum()
 casos_benignos = (y_cancer == 1).sum()
 
@@ -208,6 +228,7 @@ print(f"   ✅ Casos benignos: {casos_benignos}")
 #### Entrenar modelo de regresión logística
 
 ```python
+# 1. Dividir datos en entrenamiento y prueba
 X_train_cancer, X_test_cancer, y_train_cancer, y_test_cancer = train_test_split(
     X_cancer, y_cancer, test_size=0.2, random_state=42
 )
@@ -215,13 +236,16 @@ X_train_cancer, X_test_cancer, y_train_cancer, y_test_cancer = train_test_split(
 print(f"📊 Datos de entrenamiento: {X_train_cancer.shape[0]} pacientes")
 print(f"📊 Datos de prueba: {X_test_cancer.shape[0]} pacientes")
 
+# 2. Crear y entrenar modelo de regresión logística
 modelo_clasificacion = LogisticRegression(max_iter=5000, random_state=42)
 modelo_clasificacion.fit(X_train_cancer, y_train_cancer)
 
 print("✅ Modelo de clasificación entrenado!")
 
+# 3. Hacer predicciones
 predicciones_cancer = modelo_clasificacion.predict(X_test_cancer)
 
+# 4. Evaluar con MÚLTIPLES MÉTRICAS de clasificación
 exactitud = accuracy_score(y_test_cancer, predicciones_cancer)
 precision = precision_score(y_test_cancer, predicciones_cancer)
 recall = recall_score(y_test_cancer, predicciones_cancer)
@@ -233,12 +257,14 @@ print(f"   🎯 Precisión (Precision): {precision:.3f} ({precision*100:.1f}%)")
 print(f"   🎯 Recall (Sensibilidad): {recall:.3f} ({recall*100:.1f}%)")
 print(f"   🎯 F1-Score: {f1:.3f}")
 
+# Mostrar matriz de confusión de forma simple
 matriz_confusion = confusion_matrix(y_test_cancer, predicciones_cancer)
 print(f"\n🔢 MATRIZ DE CONFUSIÓN:")
 print(f"   📊 {matriz_confusion}")
 print(f"   📋 [Verdaderos Negativos, Falsos Positivos]")
 print(f"   📋 [Falsos Negativos, Verdaderos Positivos]")
 
+# Reporte detallado
 print(f"\n📋 REPORTE DETALLADO:")
 print(classification_report(y_test_cancer, predicciones_cancer, target_names=['Maligno', 'Benigno']))
 
@@ -247,6 +273,7 @@ print(f"   🩺 Precision: De los casos que predecimos como benignos, {precision
 print(f"   🩺 Recall: De todos los casos benignos reales, detectamos {recall*100:.1f}%")
 print(f"   🩺 F1-Score: Balance general entre precision y recall: {f1:.3f}")
 
+# 5. Ver ejemplos específicos
 print(f"\n🔍 EJEMPLOS (Real vs Predicho):")
 for i in range(5):
     real = "Benigno" if y_test_cancer[i] == 1 else "Maligno"
