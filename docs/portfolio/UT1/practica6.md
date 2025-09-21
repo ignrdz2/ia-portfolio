@@ -952,7 +952,7 @@ PCA aplicado:
    Varianza explicada: 68.6%
 ```
 
-![Mall Customers en Espacio PCA 2D](assets/practica6_pca2d.png)
+![Mall Customers en Espacio PCA 2D](assets/p6/6.png)
 
 ### 17. Feature selection vs PCA
 
@@ -969,7 +969,7 @@ Backward Elimination: ['Annual Income (k$)', 'Spending Score (1-100)', 'Genre_Fe
 PCA (2D): Silhouette Score = 0.686
 ```
 
-![Comparación de Métodos de Feature Selection](assets/practica6_feature_selection.png)
+![Comparación de Métodos de Feature Selection](assets/p6/7.png)
 
 ### 18. Clustering final y análisis de K óptimo
 
@@ -995,12 +995,12 @@ for k in k_range:
    ...
 ```
 
-![Elbow Method y Silhouette Analysis](assets/practica6_elbow_silhouette.png)
+![Elbow Method y Silhouette Analysis](assets/p6/8.png)
 
 ### 19. Visualización y perfiles de clusters
 
-![Clusters Descubiertos (PCA 2D)](assets/practica6_clusters.png)
-![Perfil de Características por Cluster](assets/practica6_heatmap.png)
+![Clusters Descubiertos (PCA 2D)](assets/p6/9.png)
+![Perfil de Características por Cluster](assets/p6/10.png)
 
 ### 20. Comparación de algoritmos
 
@@ -1029,18 +1029,9 @@ Spectral: Silhouette=0.573, Clusters=2
 AgglomerativeClustering: Silhouette=0.573, Clusters=2
 ```
 
-![Comparación de Algoritmos de Clustering](assets/practica6_algorithms.png)
+![Comparación de Algoritmos de Clustering](assets/p6/11.png)
 
 ## Evidencias
-
-- Histogramas y scatter plots: ![Distribuciones de Variables Clave](assets/practica6_histogramas.png), ![Relaciones Entre Variables](assets/practica6_scatter.png)
-- Matriz de correlación: ![Matriz de Correlación](assets/practica6_corr.png)
-- Boxplots de normalización: ![Comparación de Scalers - Boxplots](assets/practica6_boxplots.png)
-- PCA y clusters: ![Mall Customers en Espacio PCA 2D](assets/practica6_pca2d.png), ![Clusters Descubiertos (PCA 2D)](assets/practica6_clusters.png)
-- Elbow y silhouette: ![Elbow Method y Silhouette Analysis](assets/practica6_elbow_silhouette.png)
-- Feature selection: ![Comparación de Métodos de Feature Selection](assets/practica6_feature_selection.png)
-- Heatmap de perfiles: ![Perfil de Características por Cluster](assets/practica6_heatmap.png)
-- Comparación de algoritmos: ![Comparación de Algoritmos de Clustering](assets/practica6_algorithms.png)
 
 ## Reflexión
 
