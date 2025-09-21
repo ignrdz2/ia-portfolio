@@ -1049,7 +1049,6 @@ AgglomerativeClustering: Silhouette=0.573, Clusters=2
 
 ## Referencias
 
-- [Consigna original](../consigna.pdf)
 - [Mall Customer Segmentation Dataset](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python/data)
 - [Pandas Documentation](https://pandas.pydata.org/docs/)
 - [NumPy Documentation](https://numpy.org/doc/stable/)
