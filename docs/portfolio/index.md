@@ -23,3 +23,10 @@ Bienvenido a las entradas del portafolio. Usá la plantilla para crear nuevas p�
 
 - Práctica 7: [UT2/practica7.md](UT2/practica7.md)
 - Práctica 8: [UT2/practica8.md](UT2/practica8.md)
+
+## UT3
+
+- Práctica 9: [UT3/practica9.md](UT3/practica9.md)
+- Práctica 10: [UT3/practica10.md](UT3/practica10.md)
+- Práctica 11: [UT3/practica11.md](UT3/practica11.md)
+- Práctica 12: [UT3/practica12.md](UT3/practica12.md)
